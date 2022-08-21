@@ -70,7 +70,7 @@ if [ ! -d "$PYENV_DIR" ] || [ ! -e "$PYENV_DIR" ]; then
   abort "cannot change working directory to \`$PYENV_DIR'"
 fi
 
-PYENV_DIR=$(cd "$PYENV_DIR" && echo "$PWD")
+PYENV_DIR=$(cd "$PYENV_DIR" 2>/dev/null && echo "$PWD" || echo "$HOME")
 export PYENV_DIR
 
 
